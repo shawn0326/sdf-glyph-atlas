@@ -1,6 +1,6 @@
 {
   "name": "sdf-glyph-atlas",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Renderer-independent SDF glyph atlas generation for browsers and workers.",
   "keywords": [
     "sdf",

@@ -42,5 +42,13 @@
         "organizeImports": "on"
       }
     }
-  }
+  },
+  "overrides": [
+    {
+      "includes": [".release-please-manifest.json"],
+      "formatter": {
+        "enabled": false
+      }
+    }
+  ]
 }

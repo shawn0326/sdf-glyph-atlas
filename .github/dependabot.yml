@@ -9,6 +9,10 @@ updates:
       development-dependencies:
         patterns:
           - "*"
+    ignore:
+      - dependency-name: "@types/node"
+        update-types:
+          - "version-update:semver-major"
     open-pull-requests-limit: 5
 
   - package-ecosystem: github-actions

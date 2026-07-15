@@ -1,0 +1,12 @@
+node_modules/
+dist/
+coverage/
+.vitest-attachments/
+release-artifacts/
+playwright-report/
+test-results/
+tests/browser/__screenshots__/
+*.tgz
+*.tsbuildinfo
+.DS_Store
+Thumbs.db

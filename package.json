@@ -1,0 +1,78 @@
+{
+  "name": "sdf-glyph-atlas",
+  "version": "0.0.0",
+  "description": "Renderer-independent SDF glyph atlas generation for browsers and workers.",
+  "keywords": [
+    "sdf",
+    "glyph",
+    "font",
+    "text-rendering",
+    "canvas",
+    "webgl",
+    "webgpu"
+  ],
+  "homepage": "https://github.com/shawn0326/sdf-glyph-atlas#readme",
+  "bugs": {
+    "url": "https://github.com/shawn0326/sdf-glyph-atlas/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shawn0326/sdf-glyph-atlas.git"
+  },
+  "license": "MIT",
+  "author": "shawn0326",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "README.zh-CN.md",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "clean": "node scripts/clean.mjs",
+    "build": "npm run clean && tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "format": "biome check --write .",
+    "format:check": "biome check .",
+    "test:unit": "vitest run --config vitest.unit.config.ts",
+    "test:coverage": "vitest run --coverage --config vitest.unit.config.ts",
+    "test:browser": "vitest run --config vitest.browser.chromium.config.ts",
+    "test:browser:all": "vitest run --config vitest.browser.config.ts",
+    "test:browser:chromium": "vitest run --config vitest.browser.chromium.config.ts",
+    "test:browser:firefox": "vitest run --config vitest.browser.firefox.config.ts",
+    "test": "npm run test:unit && npm run test:browser",
+    "check:package": "npm run build && publint && node scripts/check-package.mjs",
+    "check": "npm run format:check && npm run typecheck && npm run test:coverage && npm run test:browser && npm run check:package",
+    "check:ci": "npm run format:check && npm run typecheck && npm run test:coverage && npm run test:browser:all && npm run check:package",
+    "release:artifact": "node scripts/create-release-artifact.mjs",
+    "release:check": "npm run check:ci && node scripts/check-release.mjs",
+    "prepack": "npm run build",
+    "prepublishOnly": "npm run release:check"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.4",
+    "@types/node": "^24.0.0",
+    "@vitest/browser-playwright": "4.1.10",
+    "@vitest/coverage-v8": "4.1.10",
+    "playwright": "^1.61.1",
+    "publint": "^0.3.21",
+    "typescript": "^7.0.2",
+    "vitest": "4.1.10"
+  },
+  "packageManager": "npm@11.6.2"
+}

@@ -65,12 +65,12 @@
     "prepublishOnly": "npm run release:check"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.5.4",
+    "@biomejs/biome": "2.5.6",
     "@types/node": "^24.0.0",
     "@vitest/browser-playwright": "4.1.10",
     "@vitest/coverage-v8": "4.1.10",
-    "playwright": "^1.61.1",
-    "publint": "^0.3.21",
+    "playwright": "^1.62.0",
+    "publint": "^0.3.22",
     "typescript": "^7.0.2",
     "vitest": "4.1.10"
   },
